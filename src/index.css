@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+  display: grid;
+  grid-template-areas:
+    "head head head"
+    "side content content"
+    "foot foot foot";
+  grid-template-rows: 60px auto 20px;
+  grid-template-columns: 200px auto auto;
+}
+
+header {
+  grid-area: head;
+}
+article {
+  grid-area: content;
+  background: rgb(39, 68, 114);
+  @apply backdrop-blur-md;
+}
+aside {
+  grid-area: side;
+}
+footer {
+  grid-area: foot;
+}
+
+.MainColor {
+  @apply bg-[#274472];
+}
+
+.SecondColor {
+  @apply bg-[#5a90c2];
+}
+
+.AssetColor {
+  @apply bg-[#5885AF];
+}
+
+.reg-title {
+  @apply flex-shrink-0 text-[17px] font-normal text-white;
+}
+
+input {
+  @apply outline-none;
+}
+
+textarea {
+  @apply outline-none text-black; 
+}

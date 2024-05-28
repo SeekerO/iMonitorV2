@@ -38,16 +38,17 @@ const Registration = () => {
       }
     }
   };
+  console.log(formData);
 
   return (
-    <div className="px-10">
+    <div className="px-5 w-full">
       <motion.div
         initial={{ x: 500 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.5, ease: "easeIn" }}
-        className=" p-2 rounded-lg overflow-auto  bg-slate-300 h-fit w-full overflow-y-auto text-black backdrop-blur-lg bg-opacity-15 shadow-2xl shadow-slate-800"
+        className=" p-2 rounded-lg overflow-auto  bg-slate-300 h-fit w-full overflow-y-auto text-black backdrop-blur-lg bg-opacity-40 shadow-2xl shadow-slate-800"
       >
-        <div className=" font-bold tracking-wide mt-5 w-[95%] flex justify-between items-center text-slate-100">
+        <div className=" font-bold tracking-wide mt-5 w-full flex justify-between items-center text-slate-100">
           <div className="gap-2 flex h-fit ">
             <span className="text-[30px]">REGISTRATION</span>
             <span className="flex font-thin gap-1 items-center">
@@ -57,7 +58,7 @@ const Registration = () => {
           </div>
           <div className="font-thin">S.Y 2024-2025</div>
         </div>
-        <div className="mt-2 w-[95%] flex flex-col gap-y-3">
+        <div className="mt-2 w-full flex flex-col gap-y-3">
           <div className="flex gap-2 items-center ">
             <label className="reg-title">FULLNAME</label>
             <input
@@ -157,7 +158,7 @@ const Registration = () => {
         <h1 className="text-[30px] font-bold tracking-wider mt-10 text-slate-100">
           COMPANY INFORMATION
         </h1>
-        <div className="mt-2 w-[95%] flex flex-col gap-y-3 text-black">
+        <div className="mt-2 w-full flex flex-col gap-y-3 text-black">
           <div className="flex gap-2 items-center ">
             <label className="reg-title">START TIME</label>
             <input
@@ -251,7 +252,7 @@ const Registration = () => {
         </div>
         <button
           onClick={() => submitForm()}
-          className="w-[95%]  text-slate-100 mt-4 p-2 SecondColor font-semibold hover:text-blue-800 rounded-md hover:shadow-md hover:shadow-slate-800"
+          className="w-full  text-slate-100 mt-4 p-2 SecondColor font-semibold hover:text-blue-800 rounded-md hover:shadow-md hover:shadow-slate-800"
         >
           REGISTER
         </button>

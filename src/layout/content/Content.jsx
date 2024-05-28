@@ -10,7 +10,7 @@ import ActivityLog from "./pages/announcement/activitylog/ActivityLog";
 import UploadLog from "./pages/announcement/uploadlog/UploadLog";
 const Content = () => {
   return (
-    <div>
+    <div className="w-full">
       <Routes>
         <Route path="/registration" element={<Registration />} />
         <Route path="/monitoring" element={<Monitoring />} />

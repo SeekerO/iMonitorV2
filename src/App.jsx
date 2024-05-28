@@ -33,10 +33,10 @@ function App() {
         ""
       ) : (
         <Suspense fallback="Loading...">
-          <aside className="SecondColor h-full w-[200px]">
+          <aside className="SecondColor h-full w-[200px] ">
             <Sidebar />
           </aside>
-          <article className="h-full  ">
+          <article className="h-full w-full ">
             <Content />
           </article>
         </Suspense>

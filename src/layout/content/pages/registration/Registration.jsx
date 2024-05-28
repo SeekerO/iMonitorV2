@@ -40,14 +40,13 @@ const Registration = () => {
   };
 
   return (
-    <>
+    <div className="px-10">
       <motion.div
         initial={{ x: 500 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.5, ease: "easeIn" }}
-        className="mx-10 my-5 p-2 rounded-lg overflow-auto  bg-slate-300 h- w-full overflow-y-auto text-black backdrop-blur-lg bg-opacity-15 shadow-2xl shadow-slate-800"
+        className=" p-2 rounded-lg overflow-auto  bg-slate-300 h-fit w-full overflow-y-auto text-black backdrop-blur-lg bg-opacity-15 shadow-2xl shadow-slate-800"
       >
-        {" "}
         <div className=" font-bold tracking-wide mt-5 w-[95%] flex justify-between items-center text-slate-100">
           <div className="gap-2 flex h-fit ">
             <span className="text-[30px]">REGISTRATION</span>
@@ -257,7 +256,7 @@ const Registration = () => {
           REGISTER
         </button>
       </motion.div>
-    </>
+    </div>
   );
 };
 

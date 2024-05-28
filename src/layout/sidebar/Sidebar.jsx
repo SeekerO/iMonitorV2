@@ -13,7 +13,7 @@ const Sidebar = () => {
   const location = useLocation();
 
   const Buttons = [
-    { to: "/", title: "Registration", icon: <MdAppRegistration /> },
+    { to: "/registration", title: "Registration", icon: <MdAppRegistration /> },
     { to: "/monitoring", title: "Monitoring", icon: <PiMonitorBold /> },
     { to: "/masterlist", title: "Master List", icon: <FaRegListAlt /> },
     { to: "/company", title: "Company", icon: <FaRegBuilding /> },

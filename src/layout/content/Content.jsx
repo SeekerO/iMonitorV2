@@ -12,7 +12,7 @@ const Content = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Registration />} />
+        <Route path="/registration" element={<Registration />} />
         <Route path="/monitoring" element={<Monitoring />} />
         <Route path="/masterlist" element={<MasterList />} />
         <Route path="/message" element={<Message />} />

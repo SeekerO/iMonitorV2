@@ -16,36 +16,34 @@ function App() {
   const [isLoggedIn, setLoggedIn] = useState(true);
   return (
     <main className="overflow-hidden h-screen w-screen select-none bg-slate-200">
-      <ToastContainer>
-        <LoginForm
+      <LoginForm
+        setOpenLogin={setOpenLogin}
+        isOpenLogin={isOpenLogin}
+        isLoggedIn={isLoggedIn}
+        setLoggedIn={setLoggedIn}
+      />
+      <header className="w-screen bg-slate-400">
+        <Header
           setOpenLogin={setOpenLogin}
           isOpenLogin={isOpenLogin}
           isLoggedIn={isLoggedIn}
-          setLoggedIn={setLoggedIn}
         />
-        <header className="w-screen bg-slate-400">
-          <Header
-            setOpenLogin={setOpenLogin}
-            isOpenLogin={isOpenLogin}
-            isLoggedIn={isLoggedIn}
-          />
-        </header>
-        {!isLoggedIn ? (
-          ""
-        ) : (
-          <Suspense fallback="Loading...">
-            <aside className="SecondColor h-full w-[200px]">
-              <Sidebar />
-            </aside>
-            <article className="h-full  ">
-              <Content />
-            </article>
-          </Suspense>
-        )}
-        <footer className="bg-slate-600">
-          <Footer />
-        </footer>
-      </ToastContainer>
+      </header>
+      {!isLoggedIn ? (
+        ""
+      ) : (
+        <Suspense fallback="Loading...">
+          <aside className="SecondColor h-full w-[200px]">
+            <Sidebar />
+          </aside>
+          <article className="h-full  ">
+            <Content />
+          </article>
+        </Suspense>
+      )}
+      <footer className="bg-slate-600">
+        <Footer />
+      </footer>
     </main>
   );
 }

@@ -3,6 +3,7 @@ import { FaSort } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import DataConfig from "../component/dataDisplay/DataConfig";
 import ReactPaginate from "react-paginate";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Monitoring = ({ data }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -100,20 +101,20 @@ const Monitoring = ({ data }) => {
           </div>
           <div className="flex justify-center mt-2">
             <ReactPaginate
-              previousLabel={"previous"}
-              nextLabel={"next"}
+              previousLabel={<IoIosArrowBack />}
+              nextLabel={<IoIosArrowForward />}
               breakLabel={"..."}
               pageCount={Math.ceil(sortedData.length / itemsPerPage)}
               marginPagesDisplayed={2}
               pageRangeDisplayed={5}
               onPageChange={handlePageChange}
-              containerClassName={"flex space-x-2"}
+              containerClassName={"flex space-x-2 items-center"}
               pageClassName={
                 "px-3 py-1 cursor-pointer rounded border border-gray-300"
               }
               pageLinkClassName={"text-white"}
               previousClassName={
-                "px-3 py-1 cursor-pointer rounded border border-gray-300"
+                "px-3 py-1 cursor-pointer rounded border border-gray-300 text-center justify-center"
               }
               previousLinkClassName={"text-white"}
               nextClassName={

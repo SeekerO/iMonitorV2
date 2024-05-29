@@ -252,7 +252,7 @@ const Registration = () => {
         </div>
         <button
           onClick={() => submitForm()}
-          className="w-full  text-slate-100 mt-4 p-2 SecondColor font-semibold hover:text-blue-800 rounded-md hover:shadow-md hover:shadow-slate-800"
+          className="w-full  text-slate-100 mt-4 p-2 MainColor font-semibold hover:text-whtie rounded-md hover:shadow-md hover:shadow-slate-800"
         >
           REGISTER
         </button>

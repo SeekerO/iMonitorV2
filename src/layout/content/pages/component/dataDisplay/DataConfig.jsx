@@ -8,7 +8,7 @@ const DataConfig = ({ meta_data, datafrom }) => {
     <>
       <div
         key={meta_data.id}
-        className="text-white MainColor gap-2 flex items-center p-2  rounded-md mt-1 hover:py-4 hover:shadow-md  duration-300 justify-between px-2 "
+        className="text-white MainColor gap-2 flex items-center p-2 z-0  rounded-md mt-1 hover:py-4 hover:shadow-md  duration-300 justify-between px-2 "
       >
         <div
           onClick={() => setopenModal(!openModal)}
@@ -26,7 +26,7 @@ const DataConfig = ({ meta_data, datafrom }) => {
           {meta_data.name}
         </div>
         <div className="truncate ... overflow-hidden">{meta_data.course}</div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 z-0">
           {datafrom === "masterlist" ? (
             <ProgressChecker
               progress={meta_data.ojtprogress}

@@ -27,7 +27,7 @@ const Content = () => {
 
   if (data === null) setdata(DataFetcher());
   return (
-    <div className="w-full h-full items-center justify-center flex">
+    <div className="w-full h-full  justify-center flex">
       <Suspense fallback={"Loading..."}>
         <Routes>
           <Route path="/" element={<Registration />} />

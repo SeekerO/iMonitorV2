@@ -56,12 +56,12 @@ const Modal = ({ openModal, setopenModal, data, datafrom }) => {
 
   if (!openModal) return;
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 h-full rounded-sm w-full flex justify-center ">
+    <div className="fixed inset-0 bg-black bg-opacity-50 h-full rounded-sm w-full flex justify-center z-50">
       <div
         ref={ref}
-        className="bg-blue-100 text-black w-[50rem] h-[30rem] mt-10 rounded-md shadow-md p-2 "
+        className="bg-blue-100 text-black w-[50rem] h-[30rem] mt-10 rounded-md shadow-md p-2  "
       >
-        <div className="font-semibold tracking-wider  flex justify-between w-full items-center">
+        <div className="font-semibold tracking-wider  flex justify-between w-full items-center ">
           <label className="flex gap-2 items-center h-fit">
             <span className="underline underline-offset-2">
               STUDENT INFORMATION
@@ -87,9 +87,9 @@ const Modal = ({ openModal, setopenModal, data, datafrom }) => {
         <div
           className={`${
             deviceType ? "flex overflow-hidden" : "flex flex-col overflow-auto"
-          } h-[90%]`}
+          } h-[90%]  `}
         >
-          <div className="w-full h-full mt-2 ">
+          <div className="w-full h-full mt-2 px-2  ">
             <div className="w-full justify-center flex">
               <img
                 src={data.avatar}
@@ -128,7 +128,7 @@ const Modal = ({ openModal, setopenModal, data, datafrom }) => {
               </div>
             </div>
           </div>
-          <div className="w-full h-[90%] md:mt-5 mt-2   border-s-2 border-slate-300 p-1 flex flex-col gap-2 font-semibold text-[15px]">
+          <div className="w-full h-[90%] md:mt-5 mt-2 px-2   border-s-2 border-slate-300 p-1 flex flex-col gap-2 font-semibold text-[15px]">
             <label className="text-[20px] flex items-center gap-1">
               <BsFillBuildingsFill />
               {data.companyname}

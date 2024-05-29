@@ -5,7 +5,7 @@ import DataConfig from "../CompanyDataConfig/DataConfig";
 import { RiBuilding2Fill } from "react-icons/ri";
 ChartJS.register(Tooltip, Legend, ArcElement);
 
-const ChartCompany = ({ data }) => {
+const ChartCompany = ({ data, deviceType }) => {
   const top3data = data
     .sort((a, b) => b.studentenrolled - a.studentenrolled)
     .slice(0, 3);
@@ -31,15 +31,35 @@ const ChartCompany = ({ data }) => {
           "rgb(53, 89, 224, 2)",
         ],
         borderWidth: 1,
-        radius: "90%",
+        radius: !deviceType ? "70%" : "90%",
         hoverOffset: 50,
       },
     ],
   };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        labels: {
+          color: "rgba(255, 255, 255, 0.8)", // Legend text color
+        },
+      },
+      title: {
+        display: true,
+        text: "Custom Chart Title",
+        color: "rgba(255, 255, 255, 0.8)", // Title text color
+      },
+      tooltip: {
+        bodyColor: "rgba(255, 255, 255, 0.8)", // Tooltip text color
+        titleColor: "rgba(255, 255, 255, 0.8)", // Tooltip title color
+      },
+    },
+  };
   return (
-    <div className="flex ">
-      <div className="w-full h-[75dvh] flex">
-        <Pie data={PieData} />
+    <div className={`${deviceType ? "flex" : "flex-wrap"} w-full`}>
+      <div className={` ${!deviceType? "h-fit" : "h-[75dvh]"}  flex`}>
+        <Pie options={options} data={PieData} />
       </div>{" "}
       <div className="flex flex-col h-full w-full overflow-hidden">
         {" "}

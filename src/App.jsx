@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Header from "./layout/header/Header";
 
 import Footer from "./layout/footer/Footer";
@@ -13,7 +13,19 @@ const Sidebar = lazy(() => import("./layout/sidebar/Sidebar"));
 
 function App() {
   const [isOpenLogin, setOpenLogin] = useState(false);
-  const [isLoggedIn, setLoggedIn] = useState(true);
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [userData, setUserData] = useState();
+
+  console.log(isLoggedIn);
+
+  useEffect(() => {
+    const currentUser = JSON.parse(window.localStorage.getItem("CurrentUser"));
+    if (currentUser?.username === "tester1") {
+      setLoggedIn(true);
+      setUserData(currentUser);
+    }
+  }, []);
+
   return (
     <main className="overflow-hidden h-screen w-screen select-none bg-slate-200">
       <LoginForm
@@ -21,12 +33,15 @@ function App() {
         isOpenLogin={isOpenLogin}
         isLoggedIn={isLoggedIn}
         setLoggedIn={setLoggedIn}
+        setUserData={setUserData}
+        userData={userData}
       />
       <header className="w-screen bg-slate-400">
         <Header
           setOpenLogin={setOpenLogin}
           isOpenLogin={isOpenLogin}
           isLoggedIn={isLoggedIn}
+          userData={userData}
         />
       </header>
       {!isLoggedIn ? (

@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useLayoutEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { lazy } from "react";
 import DataFetcher from "./pages/component/fetcher/DataFetcher";
@@ -19,16 +19,18 @@ const UploadLog = lazy(() =>
 );
 
 const Content = () => {
-  const [data, setdata] = useState();
-  useEffect(() => {
+  const [data, setdata] = useState(null);
+  const url = window.location.pathname;
+  useLayoutEffect(() => {
     setdata(DataFetcher());
   }, []);
 
+  if (data === null) setdata(DataFetcher());
   return (
-    <div className="w-full">
+    <div className="w-full h-full items-center justify-center flex">
       <Suspense fallback={"Loading..."}>
         <Routes>
-          <Route path="/registration" element={<Registration />} />
+          <Route path="/" element={<Registration />} />
           <Route path="/monitoring" element={<Monitoring data={data} />} />
           <Route path="/masterlist" element={<MasterList data={data} />} />
           <Route path="/message" element={<Message />} />

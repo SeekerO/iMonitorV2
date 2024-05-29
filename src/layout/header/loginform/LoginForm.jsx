@@ -1,8 +1,36 @@
 import React, { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import AzureLogin from "./component/AzureLogin";
-const LoginForm = ({ setOpenLogin, isOpenLogin, isLoggedIn, setLoggedIn }) => {
+const LoginForm = ({
+  setOpenLogin,
+  isOpenLogin,
+  isLoggedIn,
+  setLoggedIn,
+  userData,
+  setUserData,
+}) => {
   const [isOpenAdmin, setOpenAdmin] = useState(false);
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleLogin = () => {
+    if (formData.username === "tester1" && formData.password === "tester1") {
+      window.localStorage.setItem("CurrentUser", JSON.stringify(formData));
+      setLoggedIn(true);
+      setUserData({ username: formData.username, password: formData.password });
+      setOpenLogin(false);
+    }
+  };
 
   if (!isOpenLogin) return;
   return (
@@ -50,23 +78,30 @@ const LoginForm = ({ setOpenLogin, isOpenLogin, isLoggedIn, setLoggedIn }) => {
               LOGIN WITH OFFICE 365
             </div>
           ) : (
-            <form className="space-y-2 mt-10 text-black">
+            <div className="space-y-2 mt-10 text-black">
               <input
                 required
+                onChange={handleChange}
+                name="username"
                 type="text"
                 placeholder="Enter Username"
                 className="p-2 w-full rounded-md"
               />
               <input
                 required
+                onChange={handleChange}
+                name="password"
                 type="text"
                 placeholder="Enter Password"
                 className="p-2 w-full rounded-md"
               />
-              <button className="w-full flex items-center text-white justify-center p-2 MainColor rounded-md hover:opacity-85">
+              <button
+                onClick={() => handleLogin()}
+                className="w-full flex items-center text-white justify-center p-2 MainColor rounded-md hover:opacity-85"
+              >
                 LOGIN
               </button>
-            </form>
+            </div>
           )}
         </div>
         {!isOpenAdmin && (

@@ -110,7 +110,7 @@ const Company = () => {
 
   return (
     <>
-      <div className="px-5">
+      <div className="px-5 w-full">
         <div className="w-full h-[88dvh] bg-slate-300  rounded-md  backdrop-blur-lg bg-opacity-40 shadow-2xl shadow-slate-800 text-white p-4">
           <div className="flex gap-2 h-fit w-full">
             <h1 className="text-[35px] font-semibold">Company</h1>

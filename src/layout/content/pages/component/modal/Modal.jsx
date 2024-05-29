@@ -8,7 +8,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail, MdTitle } from "react-icons/md";
 import { BsFillPhoneFill, BsFillBuildingsFill } from "react-icons/bs";
 import moment from "moment";
-const Modal = ({ openModal, setopenModal, data }) => {
+const Modal = ({ openModal, setopenModal, data, datafrom }) => {
   const [deviceType, setDeviceType] = useState(true);
   const ref = useRef(null);
 
@@ -61,12 +61,23 @@ const Modal = ({ openModal, setopenModal, data }) => {
         ref={ref}
         className="bg-blue-100 text-black w-[50rem] h-[30rem] mt-10 rounded-md shadow-md p-2 "
       >
-        <div className="font-semibold tracking-wider underline underline-offset-2 flex justify-between w-full items-center">
+        <div className="font-semibold tracking-wider  flex justify-between w-full items-center">
           <label className="flex gap-2 items-center h-fit">
-            STUDENT INFORMATION{" "}
+            <span className="underline underline-offset-2">
+              STUDENT INFORMATION
+            </span>
             <span className="text-[10px] bg-slate-900 text-white h-fit px-1 rounded-md font-thin">
               {data.section}
             </span>
+            {data.status === false ? (
+              <span className="text-[10px] bg-orange-500 text-white h-fit px-1 rounded-md font-thin no-underline">
+                Ongoing
+              </span>
+            ) : (
+              <span className="text-[10px] bg-green-500 text-white h-fit px-1 rounded-md font-thin">
+                Archvied
+              </span>
+            )}
           </label>
           <IoClose
             onClick={() => setopenModal(!openModal)}

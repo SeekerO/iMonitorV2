@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import DataFetcher from "../component/fetcher/DataFetcher";
 import { FaSort } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import DataConfig from "../component/dataDisplay/DataConfig";
 import ReactPaginate from "react-paginate";
 
-const Monitoring = () => {
-  const data = DataFetcher();
+const Monitoring = ({ data }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortCriteria, setSortCriteria] = useState({ field: "", order: "" });
   const [currentPage, setCurrentPage] = useState(0);

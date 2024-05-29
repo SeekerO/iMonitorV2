@@ -18,7 +18,7 @@ const Progressbar = ({ data }) => {
           }}
           className={`absolute top-0 bottom-0 left-0 rounded-md bg-blue-700`}
         />
-        <div class="relative text-indigo-900 font-medium text-sm">
+        <div class="relative text-slate-950 font-medium text-sm">
           {percentage(data.ojtprogress, data.ojtrequiredprogress)}
         </div>
       </div>

@@ -5,8 +5,8 @@ import { CiSearch } from "react-icons/ci";
 import DataConfig from "../component/dataDisplay/DataConfig";
 import ReactPaginate from "react-paginate";
 
-const MasterList = () => {
-  const data = filterOjtData(DataFetcher());
+const MasterList = ({ data }) => {
+  const data_master = filterOjtData(data);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortCriteria, setSortCriteria] = useState({ field: "", order: "" });
   const [currentPage, setCurrentPage] = useState(0);
@@ -25,7 +25,7 @@ const MasterList = () => {
     });
   };
 
-  const filteredData = data.filter((meta_data) => {
+  const filteredData = data_master.filter((meta_data) => {
     const search = searchTerm.toLowerCase();
     return (
       meta_data.name.toLowerCase().includes(search) ||

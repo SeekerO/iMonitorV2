@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-
 import { lazy } from "react";
+import DataFetcher from "./pages/component/fetcher/DataFetcher";
 
 const Registration = lazy(() => import("./pages/registration/Registration"));
 const Monitoring = lazy(() => import("./pages/monitoring/Monitoring"));
@@ -19,13 +19,15 @@ const UploadLog = lazy(() =>
 );
 
 const Content = () => {
+  const data = DataFetcher();
+
   return (
     <div className="w-full">
       <Suspense fallback={"Loading..."}>
         <Routes>
           <Route path="/registration" element={<Registration />} />
-          <Route path="/monitoring" element={<Monitoring />} />
-          <Route path="/masterlist" element={<MasterList />} />
+          <Route path="/monitoring" element={<Monitoring data={data} />} />
+          <Route path="/masterlist" element={<MasterList data={data} />} />
           <Route path="/message" element={<Message />} />
           <Route path="/company" element={<Company />} />
           <Route path="/activitylog" element={<CreateAnnouncement />} />

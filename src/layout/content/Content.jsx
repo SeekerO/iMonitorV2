@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { lazy } from "react";
 import DataFetcher from "./pages/component/fetcher/DataFetcher";
@@ -19,7 +19,10 @@ const UploadLog = lazy(() =>
 );
 
 const Content = () => {
-  const data = DataFetcher();
+  const [data, setdata] = useState();
+  useEffect(() => {
+    setdata(DataFetcher());
+  }, []);
 
   return (
     <div className="w-full">

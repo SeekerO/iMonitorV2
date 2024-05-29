@@ -3,13 +3,8 @@
 @tailwind utilities;
 
 main {
-  display: grid;
-  grid-template-areas:
-    "head head head"
-    "side content content"
-    "foot foot foot";
-  grid-template-rows: 60px auto 20px;
-  grid-template-columns: 200px auto auto;
+  background-image: url("paper.gif");
+  background-color: #441515;
 }
 
 header {
@@ -58,7 +53,7 @@ textarea {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0F2167;
+  background: #0f2167;
   -webkit-border-radius: 1ex;
 }
 

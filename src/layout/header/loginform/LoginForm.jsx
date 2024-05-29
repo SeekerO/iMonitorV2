@@ -29,6 +29,8 @@ const LoginForm = ({
       setLoggedIn(true);
       setUserData({ username: formData.username, password: formData.password });
       setOpenLogin(false);
+    } else {
+      alert("Login Failed");
     }
   };
 
@@ -91,7 +93,7 @@ const LoginForm = ({
                 required
                 onChange={handleChange}
                 name="password"
-                type="text"
+                type="password"
                 placeholder="Enter Password"
                 className="p-2 w-full rounded-md"
               />

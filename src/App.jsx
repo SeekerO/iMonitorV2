@@ -27,7 +27,7 @@ function App() {
   }, []);
 
   return (
-    <main className="overflow-hidden h-screen w-screen select-none bg-slate-200">
+    <main className="overflow-hidden h-screen w-screen  select-none background">
       <LoginForm
         setOpenLogin={setOpenLogin}
         isOpenLogin={isOpenLogin}
@@ -36,7 +36,7 @@ function App() {
         setUserData={setUserData}
         userData={userData}
       />
-      <header className="w-screen bg-slate-400">
+      <header className="w-screen bg-slate-400 h-[60px]">
         <Header
           setOpenLogin={setOpenLogin}
           isOpenLogin={isOpenLogin}
@@ -44,19 +44,22 @@ function App() {
           userData={userData}
         />
       </header>
-      {!isLoggedIn ? (
-        ""
-      ) : (
+
+      {isLoggedIn ? (
         <Suspense fallback="Loading...">
-          <aside className="SecondColor h-full w-[200px] ">
-            <Sidebar />
-          </aside>
-          <article className="h-full w-full ">
-            <Content />
-          </article>
+          <div className="flex h-full">
+            <aside className="SecondColor h-full w-[200px] ">
+              <Sidebar />
+            </aside>
+            <article className="h-full w-full ">
+              <Content />
+            </article>
+          </div>
         </Suspense>
+      ) : (
+        <></>
       )}
-      <footer className="bg-slate-600">
+      <footer className="bg-slate-600 fixed w-full bottom-0">
         <Footer />
       </footer>
     </main>

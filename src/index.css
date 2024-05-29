@@ -48,5 +48,20 @@ input {
 }
 
 textarea {
-  @apply outline-none text-black; 
+  @apply outline-none text-black;
+}
+
+::-webkit-scrollbar {
+  height: 12px;
+  width: 5px;
+  background: #0c161800;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0F2167;
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-corner {
+  background: #0c1618;
 }

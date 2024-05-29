@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import DataFetcher from "../component/fetcher/DataFetcher";
 import { FaSort } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
-import DataConfig from "./dataDisplay/DataConfig";
+import DataConfig from "../component/dataDisplay/DataConfig";
+import ReactPaginate from "react-paginate";
 
 const Monitoring = () => {
   const data = DataFetcher();
   const [searchTerm, setSearchTerm] = useState("");
   const [sortCriteria, setSortCriteria] = useState({ field: "", order: "" });
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 25; // Number of items per page
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -47,6 +50,15 @@ const Monitoring = () => {
     return 0;
   });
 
+  // Calculate the current data to display based on the current page
+  const offset = currentPage * itemsPerPage;
+  const currentData = sortedData.slice(offset, offset + itemsPerPage);
+
+  // Handle pagination change
+  const handlePageChange = ({ selected }) => {
+    setCurrentPage(selected);
+  };
+
   return (
     <>
       <div className="px-5">
@@ -61,36 +73,65 @@ const Monitoring = () => {
                 placeholder="Search by name, course, or progress"
                 value={searchTerm}
                 onChange={handleSearchChange}
-                className="text-black  rounded-md w-full px-2"
+                className="text-black  rounded-md w-full px-2 outline-white"
               />
             </div>
           </div>
-
-          <div>
-            <div className="flex p-2 bg-[#0F2167] mt-2 w-full  rounded-md text-white font-semibold justify-between">
-              <a
-                onClick={() => handleSortChange("name")}
-                className=" flex gap-1 items-center cursor-pointer  hover:text-blue-600"
-              >
-                Sort by Name <FaSort className="text-[15px] mt-1" />
-              </a>
-              <div className=" py-1">Course</div>
-              <a
-                onClick={() => handleSortChange("ojtprogress")}
-                className="flex gap-1 items-center cursor-pointer hover:text-blue-600"
-              >
-                Sort by Progress <FaSort className="text-[15px] mt-1" />
-              </a>
-            </div>
-            {sortedData.map((meta_data, index) => (
+          <div className="flex p-2 bg-[#0F2167] mt-2 w-full  rounded-md text-white font-semibold justify-between">
+            <a
+              onClick={() => handleSortChange("name")}
+              className=" flex gap-1 items-center cursor-pointer  hover:text-blue-600"
+            >
+              Sort by Name <FaSort className="text-[15px] mt-1" />
+            </a>
+            <div className=" py-1">Course</div>
+            <a
+              onClick={() => handleSortChange("ojtprogress")}
+              className="flex gap-1 items-center cursor-pointer hover:text-blue-600"
+            >
+              Sort by Progress <FaSort className="text-[15px] mt-1" />
+            </a>
+          </div>
+          <div className="h-[62dvh] overflow-auto mt-1">
+            {currentData.map((meta_data, index) => (
               <DataConfig
                 onClick={() => setopenModal(!openModal)}
-                monitoring_meta_data={meta_data}
+                meta_data={meta_data}
               />
             ))}
           </div>
+          <div className="flex justify-center mt-2">
+            <ReactPaginate
+              previousLabel={"previous"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              pageCount={Math.ceil(sortedData.length / itemsPerPage)}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageChange}
+              containerClassName={"flex space-x-2"}
+              pageClassName={
+                "px-3 py-1 cursor-pointer rounded border border-gray-300"
+              }
+              pageLinkClassName={"text-white"}
+              previousClassName={
+                "px-3 py-1 cursor-pointer rounded border border-gray-300"
+              }
+              previousLinkClassName={"text-white"}
+              nextClassName={
+                "px-3 py-1 cursor-pointer rounded border border-gray-300"
+              }
+              nextLinkClassName={"text-white"}
+              breakClassName={
+                "px-3 py-1 cursor-pointer rounded border border-gray-300"
+              }
+              breakLinkClassName={"text-white"}
+              activeClassName={"bg-blue-950 text-white"}
+              activeLinkClassName={"text-white"}
+            />
+          </div>
         </div>
-      </div>{" "}
+      </div>
     </>
   );
 };

@@ -6,7 +6,7 @@ import { IoIdCard, IoPerson } from "react-icons/io5";
 import { FaMapPin } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail, MdTitle } from "react-icons/md";
-import { BsFillPhoneFill } from "react-icons/bs";
+import { BsFillPhoneFill, BsFillBuildingsFill } from "react-icons/bs";
 import moment from "moment";
 const Modal = ({ openModal, setopenModal, data }) => {
   const [deviceType, setDeviceType] = useState(true);
@@ -96,8 +96,13 @@ const Modal = ({ openModal, setopenModal, data }) => {
               <div className="flex justify-between">
                 <div className="text-[9px] ml-0.5">
                   OJT DURATION:{" "}
-                  {moment(data.ojtstartdate).subtract(10, "days").calendar()}-{" "}
-                  {moment(data.ojtenddate).subtract(10, "days").calendar()}
+                  {moment(new Date(data.ojtstartdate))
+                    .subtract(10, "days")
+                    .calendar()}
+                  -{" "}
+                  {moment(new Date(data.ojtenddate))
+                    .subtract(10, "days")
+                    .calendar()}
                 </div>
                 <label className="flex gap-1 text-[9px] mr-1">
                   OJT SCHEDULE:
@@ -111,7 +116,7 @@ const Modal = ({ openModal, setopenModal, data }) => {
           </div>
           <div className="w-full h-[90%] md:mt-5 mt-2   border-s-2 border-slate-300 p-1 flex flex-col gap-2 font-semibold text-[15px]">
             <label className="text-[20px] flex items-center gap-1">
-              <IoIdCard />
+              <BsFillBuildingsFill />
               {data.companyname}
             </label>
             <label className="flex items-center gap-1">

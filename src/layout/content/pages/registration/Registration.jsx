@@ -46,9 +46,9 @@ const Registration = () => {
         initial={{ x: 500 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.5, ease: "easeIn" }}
-        className=" p-2 rounded-lg overflow-auto  bg-slate-300 h-fit w-full overflow-y-auto text-black backdrop-blur-lg bg-opacity-40 shadow-2xl shadow-slate-800"
+        className=" p-2 rounded-lg overflow-auto  bg-slate-300 h-fit w-full overflow-y-auto  backdrop-blur-lg bg-opacity-40 shadow-2xl shadow-slate-800"
       >
-        <div className=" font-bold tracking-wide mt-5 w-full flex justify-between items-center text-slate-100">
+        <div className=" font-bold tracking-wide mt-5 w-full flex justify-between items-center text-white">
           <div className="gap-2 flex h-fit ">
             <span className="text-[30px]">REGISTRATION</span>
             <span className="flex font-thin gap-1 items-center">

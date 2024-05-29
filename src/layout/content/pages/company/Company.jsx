@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import DataFetcher from "../component/fetcher/DataFetcher";
-import { FaSort } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
-import DataConfig from "./CompanyDataConfig/DataConfig";
-import ReactPaginate from "react-paginate";
+import { FaChartPie } from "react-icons/fa";
+import TableCompany from "./table/TableCompany";
+import ChartCompany from "./chart/ChartCompany";
+import { FaTableColumns } from "react-icons/fa6";
 
 const Company = () => {
   const data = countStudentsByCompany(DataFetcher());
   const [searchTerm, setSearchTerm] = useState("");
   const [sortCriteria, setSortCriteria] = useState({ field: "", order: "" });
+  const [isTable, setTable] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 25; // Number of items per page
 
@@ -114,68 +116,43 @@ const Company = () => {
         <div className="w-full h-[88dvh] bg-slate-300  rounded-md  backdrop-blur-lg bg-opacity-40 shadow-2xl shadow-slate-800 text-white p-4">
           <div className="flex gap-2 h-fit w-full">
             <h1 className="text-[35px] font-semibold">Company</h1>
-            <div className="flex w-full items-center gap-1 bg-white rounded-md text-black px-2">
+            <div
+              className={`${
+                isTable ? "w-0" : "w-full"
+              } flex items-center gap-1 bg-white rounded-md text-black px-2 duration-300`}
+            >
               <CiSearch className="text-[25px] text-slate-400 h-[20px]" />
               <div className="w-[1px] h-[30px] bg-slate-300 ml-2" />
               <input
                 type="search"
-                placeholder="Search by name, course, or progress"
+                placeholder="Search by company name"
                 value={searchTerm}
                 onChange={handleSearchChange}
                 className="text-black  rounded-md w-full px-2 outline-white"
               />
             </div>
-          </div>
-          <div className="flex p-2 bg-[#0F2167] mt-2 w-full  rounded-md text-white font-semibold justify-between">
-            <a
-              onClick={() => handleSortChange("companyname")}
-              className=" flex gap-1 items-center cursor-pointer  hover:text-blue-600"
+            <div
+              onClick={() => setTable(!isTable)}
+              className="justify-center flex items-center bg-white px-4 rounded-md group cursor-pointer"
             >
-              Sort by Company Name <FaSort className="text-[15px] mt-1" />
-            </a>
-            <div className=" py-1">Address</div>
-            <a
-              onClick={() => handleSortChange("studentEnrolled")}
-              className="flex gap-1 items-center cursor-pointer hover:text-blue-600"
-            >
-              Sort by Enrolled Student <FaSort className="text-[15px] mt-1" />
-            </a>
+              {isTable ? (
+                <FaTableColumns className="text-[20px] text-red-800 group-hover:shadow-md group-hover:text-blue-500 group-hover:scale-110 group-active:scale-95 group-hover:duration-300" />
+              ) : (
+                <FaChartPie className="text-[20px] text-red-800 group-hover:shadow-md group-hover:text-blue-500 rounded-full group-hover:scale-110 group-active:scale-95 group-hover:duration-300" />
+              )}
+            </div>
           </div>
-          <div className="h-[62dvh] overflow-auto mt-1">
-            {currentData.map((meta_data, index) => (
-              <DataConfig key={meta_data.ids} meta_data={meta_data} />
-            ))}
-          </div>
-          <div className="flex justify-center mt-2">
-            <ReactPaginate
-              previousLabel={"previous"}
-              nextLabel={"next"}
-              breakLabel={"..."}
-              pageCount={Math.ceil(sortedData.length / itemsPerPage)}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={5}
-              onPageChange={handlePageChange}
-              containerClassName={"flex space-x-2"}
-              pageClassName={
-                "px-3 py-1 cursor-pointer rounded border border-gray-300"
-              }
-              pageLinkClassName={"text-white"}
-              previousClassName={
-                "px-3 py-1 cursor-pointer rounded border border-gray-300"
-              }
-              previousLinkClassName={"text-white"}
-              nextClassName={
-                "px-3 py-1 cursor-pointer rounded border border-gray-300"
-              }
-              nextLinkClassName={"text-white"}
-              breakClassName={
-                "px-3 py-1 cursor-pointer rounded border border-gray-300"
-              }
-              breakLinkClassName={"text-white"}
-              activeClassName={"bg-blue-950 text-white"}
-              activeLinkClassName={"text-white"}
+          {!isTable ? (
+            <TableCompany
+              currentData={currentData}
+              handleSortChange={handleSortChange}
+              itemsPerPage={itemsPerPage}
+              sortedData={sortedData}
+              handlePageChange={handlePageChange}
             />
-          </div>
+          ) : (
+            <ChartCompany data={data} />
+          )}
         </div>
       </div>
     </>

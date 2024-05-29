@@ -99,7 +99,7 @@ const MasterList = ({ data }) => {
               onClick={() => handleSortChange("ojtprogress")}
               className="flex gap-1 items-center cursor-pointer hover:text-blue-600"
             >
-              Sort by Progress <FaSort className="text-[15px] mt-1" />
+              Sort by Status <FaSort className="text-[15px] mt-1" />
             </a>
           </div>
           <div className="h-[62dvh] overflow-auto mt-1">

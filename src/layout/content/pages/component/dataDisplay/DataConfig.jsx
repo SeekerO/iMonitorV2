@@ -12,8 +12,17 @@ const DataConfig = ({ meta_data, datafrom }) => {
       >
         <div
           onClick={() => setopenModal(!openModal)}
-          className="truncate ... overflow-hidden active:text-blue-500 cursor-pointer hover:underline hover:underline-offset-4  "
+          className="truncate ... overflow-hidden flex  gap-2 items-center active:text-blue-500 cursor-pointer hover:underline hover:underline-offset-4  "
         >
+          <div class="relative">
+            <img
+              class="w-[40px] h-[40px] flex-shrink-0 rounded-full"
+              src={meta_data.avatar}
+              alt={meta_data.id}
+              className="bg-slate-300 rounded-full"
+            />
+            <span class="top-0 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-slate-300 dark:border-gray-800 rounded-full"></span>
+          </div>
           {meta_data.name}
         </div>
         <div className="truncate ... overflow-hidden">{meta_data.course}</div>

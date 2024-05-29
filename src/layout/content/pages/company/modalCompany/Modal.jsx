@@ -96,7 +96,7 @@ const Modal = ({ openModal, setopenModal, meta_data }) => {
               <MdTitle /> {meta_data.designation}
             </label>
           </div>{" "}
-          <div className="flex flex-col gap-y-5 mt-2 w-full border-s-2 p-1 h-[60dvh]  border-slate-300">
+          <div className="flex flex-col gap-y-5 w-full border-s-2 p-1 h-[60dvh]  border-slate-300">
             <label className="text-[25px] flex items-center gap-1">
               <IoIdCard />
               STUDENT ENROLLED{" "}

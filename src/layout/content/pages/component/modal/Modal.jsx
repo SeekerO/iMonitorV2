@@ -91,7 +91,10 @@ const Modal = ({ openModal, setopenModal, data, datafrom }) => {
         >
           <div className="w-full h-full mt-2 ">
             <div className="w-full justify-center flex">
-              <GiPlagueDoctorProfile className="text-[200px] bg-slate-00 shadow-md rounded-full shadow-slate-700 mt-5" />
+              <img
+                src={data.avatar}
+                className="w-[200px] bg-slate-00 shadow-md rounded-full shadow-slate-700 mt-5 object-fill"
+              />
             </div>
             <div className="flex flex-col flex-grow  mt-5 font-semibold text-[15px] items-center justify-center gap-y-4">
               <label className="text-[25px] flex items-cente">

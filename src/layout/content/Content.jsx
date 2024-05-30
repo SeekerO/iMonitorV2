@@ -25,13 +25,11 @@ const Content = () => {
     setdata(DataFetcher());
   }, []);
 
-  console.log(data);
-
   if (data === null) setdata(DataFetcher());
-  return (
-    <div className="w-full h-full  justify-center flex">
-      <Suspense fallback={"Loading..."}>
-        {data.length !== 0 && (
+  else
+    return (
+      <div className="w-full h-full  justify-center flex">
+        <Suspense fallback={"Loading..."}>
           <Routes>
             <Route path="/" element={<Registration />} />
             <Route path="/monitoring" element={<Monitoring data={data} />} />
@@ -42,10 +40,9 @@ const Content = () => {
             <Route path="/createannouncement" element={<ActivityLog />} />
             <Route path="/uploadlog" element={<UploadLog />} />
           </Routes>
-        )}
-      </Suspense>
-    </div>
-  );
+        </Suspense>
+      </div>
+    );
 };
 
 export default Content;

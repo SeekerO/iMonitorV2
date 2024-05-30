@@ -16,8 +16,6 @@ function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [userData, setUserData] = useState();
 
-  console.log(isLoggedIn);
-
   useEffect(() => {
     const currentUser = JSON.parse(window.localStorage.getItem("CurrentUser"));
     if (currentUser?.username === "tester1") {

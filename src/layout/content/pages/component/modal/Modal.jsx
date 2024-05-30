@@ -155,7 +155,7 @@ const Modal = ({ openModal, setopenModal, data, datafrom }) => {
             <label className="flex items-center gap-1">
               <MdTitle /> {data.designation}
             </label>
-            <div className="w-full  bg-slate-200 h-full shadow-md overflow-auto px-2 py-2">
+            <div className="w-full  bg-slate-200 h-full shadow-md overflow-auto px-2 py-2 outline outline-1 outline-slate-400">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {MockData.map((image_data, index) => (
                   <div class="bg-white h-[100px] w-[170px] shadow rounded flex justify-center items-center">

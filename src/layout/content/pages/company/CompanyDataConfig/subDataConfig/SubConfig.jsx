@@ -36,7 +36,11 @@ const SubConfig = ({ stud_meta_data }) => {
       >
         <span> {stud_meta_data.fullname}</span>{" "}
         <span>
-          {stud_meta_data.status === false ? <IoTimerSharp /> : <MdUnarchive />}
+          {stud_meta_data.status === false ? (
+            <IoTimerSharp className="text-yellow-300" />
+          ) : (
+            <MdUnarchive className="text-green-300" />
+          )}
         </span>
       </div>
       <label className="flex items-center">

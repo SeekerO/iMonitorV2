@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import DataFetcher from "../component/fetcher/DataFetcher";
-import { FaSort } from "react-icons/fa";
-import { CiSearch } from "react-icons/ci";
+import React, { useState, Suspense } from "react";
 import DataConfig from "../component/dataDisplay/DataConfig";
 import ReactPaginate from "react-paginate";
+import { FaSort } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const MasterList = ({ data }) => {
@@ -26,7 +25,7 @@ const MasterList = ({ data }) => {
     });
   };
 
-  const filteredData = data_master.filter((meta_data) => {
+  const filteredData = data_master?.filter((meta_data) => {
     const search = searchTerm.toLowerCase();
     return (
       meta_data.name.toLowerCase().includes(search) ||
@@ -104,13 +103,15 @@ const MasterList = ({ data }) => {
             </a>
           </div>
           <div className="h-[62dvh] overflow-auto mt-1">
-            {currentData.map((meta_data, index) => (
-              <DataConfig
-                onClick={() => setopenModal(!openModal)}
-                meta_data={meta_data}
-                datafrom={"masterlist"}
-              />
-            ))}
+            <Suspense fallback={"Loading..."}>
+              {currentData.map((meta_data, index) => (
+                <DataConfig
+                  onClick={() => setopenModal(!openModal)}
+                  meta_data={meta_data}
+                  datafrom={"masterlist"}
+                />
+              ))}
+            </Suspense>
           </div>
           <div className="flex justify-center mt-2">
             <ReactPaginate

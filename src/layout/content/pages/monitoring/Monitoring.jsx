@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { FaSort } from "react-icons/fa";
-import { CiSearch } from "react-icons/ci";
+import React, { Suspense, useState } from "react";
 import DataConfig from "../component/dataDisplay/DataConfig";
 import ReactPaginate from "react-paginate";
+import { FaSort } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Monitoring = ({ data }) => {
@@ -92,12 +92,14 @@ const Monitoring = ({ data }) => {
             </a>
           </div>
           <div className="h-[62dvh] overflow-auto mt-1">
-            {currentData.map((meta_data, index) => (
-              <DataConfig
-                onClick={() => setopenModal(!openModal)}
-                meta_data={meta_data}
-              />
-            ))}
+            <Suspense fallback={"Loading..."}>
+              {currentData.map((meta_data, index) => (
+                <DataConfig
+                  onClick={() => setopenModal(!openModal)}
+                  meta_data={meta_data}
+                />
+              ))}
+            </Suspense>
           </div>
           <div className="flex justify-center mt-2">
             <ReactPaginate

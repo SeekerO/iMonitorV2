@@ -50,7 +50,7 @@ function App() {
               <Sidebar />
             </aside>
             <article className="h-full w-full ">
-              <Content />
+              <Content isLoggedIn={isLoggedIn} />
             </article>
           </div>
         </Suspense>

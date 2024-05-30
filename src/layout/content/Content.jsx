@@ -18,12 +18,12 @@ const UploadLog = lazy(() =>
   import("./pages/announcement/uploadlog/UploadLog")
 );
 
-const Content = () => {
+const Content = ({ isLoggedIn }) => {
   const [data, setdata] = useState(null);
   const url = window.location.pathname;
   useLayoutEffect(() => {
     setdata(DataFetcher());
-  }, []);
+  }, [isLoggedIn]);
 
   if (data === null) setdata(DataFetcher());
   else

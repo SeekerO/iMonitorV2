@@ -3,8 +3,22 @@
 @tailwind utilities;
 
 main {
-  background-image: url("paper.gif");
-  background-color: #441515;
+  background: linear-gradient(-45deg, #5279ee, #1d2c83, #23a6d5, #2370d5);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 header {

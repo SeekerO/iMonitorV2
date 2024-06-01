@@ -2,11 +2,12 @@ import React, { useState, Suspense } from "react";
 import DataConfig from "../component/dataDisplay/DataConfig";
 import ReactPaginate from "react-paginate";
 import { FaSort } from "react-icons/fa";
-import { CiSearch } from "react-icons/ci";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import SearchBar from "../component/searchbar/SearchBar";
 
 const MasterList = ({ data }) => {
   const data_master = filterOjtData(data);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [sortCriteria, setSortCriteria] = useState({ field: "", order: "" });
   const [currentPage, setCurrentPage] = useState(0);
@@ -75,17 +76,10 @@ const MasterList = ({ data }) => {
             <h1 className="text-[35px] font-semibold flex-shrink-0">
               Master List
             </h1>
-            <div className="flex w-full items-center gap-1 bg-white rounded-md text-black px-2">
-              <CiSearch className="text-[25px] text-slate-400 h-[20px]" />
-              <div className="w-[1px] h-[30px] bg-slate-300 ml-2" />
-              <input
-                type="search"
-                placeholder="Search by name, course, or progress"
-                value={searchTerm}
-                onChange={handleSearchChange}
-                className="text-black  rounded-md w-full px-2 outline-white"
-              />
-            </div>
+            <SearchBar
+              searchTerm={searchTerm}
+              handleSearchChange={handleSearchChange}
+            />
           </div>
           <div className="flex p-2 bg-[#0F2167] mt-2 w-full  rounded-md text-white font-semibold justify-between">
             <a
@@ -106,6 +100,7 @@ const MasterList = ({ data }) => {
             <Suspense fallback={"Loading..."}>
               {currentData.map((meta_data, index) => (
                 <DataConfig
+                  key={meta_data.id}
                   onClick={() => setopenModal(!openModal)}
                   meta_data={meta_data}
                   datafrom={"masterlist"}

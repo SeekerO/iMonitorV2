@@ -38,7 +38,6 @@ const Registration = () => {
       }
     }
   };
-  console.log(formData);
 
   return (
     <div className="px-5 w-full">

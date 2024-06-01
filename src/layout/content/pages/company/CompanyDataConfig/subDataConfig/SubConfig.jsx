@@ -21,13 +21,14 @@ const SubConfig = ({ stud_meta_data }) => {
     };
   }, []);
 
+  // ? " overflow-hidden h-[200px]" : "h-1  overflow-hidden"
   return (
     <div
       ref={ref}
       className={`${
         !viewStudentInfo
-          ? " h-[24px] duration-300 hover:h-[28px] "
-          : "h-fit duration-300 py-2 gap-y-1 "
+          ? "h-[24px] duration-300 overflow-hidden "
+          : "h-[130px] duration-300 overflow-hidden "
       } px-2 flex flex-col overflow-hidden  bg-blue-950 text-white rounded-sm mt-1  duration-300`}
     >
       <div

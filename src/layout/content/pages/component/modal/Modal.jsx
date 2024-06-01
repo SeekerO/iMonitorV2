@@ -97,7 +97,7 @@ const Modal = ({ openModal, setopenModal, data, datafrom }) => {
               />
             </div>
             <div className="flex flex-col flex-grow  mt-5 font-semibold text-[15px] items-center justify-center gap-y-4">
-              <label className="text-[25px] flex items-cente">
+              <label className="text-[25px] flex items-center ">
                 {data.name}
               </label>
               <label className="text-[15px]">{data.course}</label>
@@ -158,7 +158,7 @@ const Modal = ({ openModal, setopenModal, data, datafrom }) => {
             <div className="w-full  bg-slate-200 h-full shadow-md overflow-auto px-2 py-2 outline outline-1 outline-slate-400">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {MockData.map((image_data, index) => (
-                  <div class="bg-white h-[100px] w-[170px] shadow rounded flex justify-center items-center">
+                  <div class="bg-white md:h-[100px] h-[150px] md:w-[170px] w-full shadow rounded flex justify-center items-center">
                     {image_data.id}
                   </div>
                 ))}

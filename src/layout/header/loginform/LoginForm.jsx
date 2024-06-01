@@ -26,6 +26,7 @@ const LoginForm = ({
   const handleLogin = () => {
     if (formData.username === "tester1" && formData.password === "tester1") {
       window.localStorage.setItem("CurrentUser", JSON.stringify(formData));
+      window.location.reload();
       setLoggedIn(true);
       setUserData({ username: formData.username, password: formData.password });
       setOpenLogin(false);
@@ -64,7 +65,7 @@ const LoginForm = ({
           {!isOpenAdmin ? (
             <div
               onClick={() => AzureLogin(setLoggedIn, setOpenLogin)}
-              className="bg-[#d33f3f] hover:bg-opacity-90 cursor-pointer px-4 py-1 text-[15px] font-semibold rounded-md flex items-center "
+              className="bg-[#d33f3f] hidden hover:bg-opacity-90 cursor-pointer px-4 py-1 text-[15px] font-semibold rounded-md  items-center "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

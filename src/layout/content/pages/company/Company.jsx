@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import DataFetcher from "../component/fetcher/DataFetcher";
 import { CiSearch } from "react-icons/ci";
 import { FaChartPie } from "react-icons/fa";
 import TableCompany from "./table/TableCompany";
 import ChartCompany from "./chart/ChartCompany";
 import { FaTableColumns } from "react-icons/fa6";
 
-const Company = () => {
-  const data = countStudentsByCompany(DataFetcher());
+const Company = ({ company_data }) => {
+  const data = countStudentsByCompany(company_data);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortCriteria, setSortCriteria] = useState({ field: "", order: "" });
   const [isTable, setTable] = useState(false);

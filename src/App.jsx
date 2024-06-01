@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useState, useRef } from "react";
 import Header from "./layout/header/Header";
 import Footer from "./layout/footer/Footer";
 import LoginForm from "./layout/header/loginform/LoginForm";
@@ -11,9 +11,29 @@ const Sidebar = lazy(() => import("./layout/sidebar/Sidebar"));
 
 function App() {
   const [isOpenLogin, setOpenLogin] = useState(false);
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState();
   const [userData, setUserData] = useState();
   const text = "WELCOME TO iMONITOR";
+  const [openSideBar, setopenSideBar] = useState(true);
+
+  const detectDeviceType = () => {
+    const width = window.innerWidth;
+    if (width <= 700) {
+      // Adjust the width threshold as needed
+      setopenSideBar(true);
+    } else {
+      setopenSideBar(false);
+    }
+  };
+  useEffect(() => {
+    detectDeviceType(); // Initial check
+    window.addEventListener("resize", detectDeviceType);
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", detectDeviceType);
+    };
+  }, []);
 
   useEffect(() => {
     const currentUser = JSON.parse(window.localStorage.getItem("CurrentUser"));
@@ -21,6 +41,26 @@ function App() {
       setLoggedIn(true);
       setUserData(currentUser);
     }
+  }, []);
+
+  const sideBarRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    const width = window.innerWidth;
+    if (
+      sideBarRef.current &&
+      !sideBarRef.current.contains(event.target) &&
+      width <= 700
+    ) {
+      setopenSideBar(true);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   return (
@@ -44,19 +84,30 @@ function App() {
           isOpenLogin={isOpenLogin}
           isLoggedIn={isLoggedIn}
           userData={userData}
+          setopenSideBar={setopenSideBar}
+          openSideBar={openSideBar}
         />
       </motion.header>
 
       {isLoggedIn ? (
         <Suspense fallback="Loading...">
-          <div className="flex h-full">
-            <aside className="SecondColor h-full w-[200px] ">
-              <Sidebar />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 3}}
+            className="flex h-full"
+          >
+            <aside className=" h-full  ">
+              <Sidebar
+                openSideBar={openSideBar}
+                setopenSideBar={setopenSideBar}
+                sideBarRef={sideBarRef}
+              />
             </aside>
             <article className="h-full w-full ">
               <Content isLoggedIn={isLoggedIn} />
             </article>
-          </div>
+          </motion.div>
         </Suspense>
       ) : (
         <div className="h-full w-full flex flex-col mt-[30vh] items-center text-[6vh] font-bold text-white gap-2  tracking-widest">

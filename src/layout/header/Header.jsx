@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-
+import { motion } from "framer-motion";
 const Header = ({ setOpenLogin, isOpenLogin, isLoggedIn, userData }) => {
   const [isClickedProfile, setClickedProfile] = useState(false);
   const ref = useRef(null);
@@ -24,7 +24,10 @@ const Header = ({ setOpenLogin, isOpenLogin, isLoggedIn, userData }) => {
   }, []);
 
   return (
-    <div
+    <motion.div
+      initial={{ visibility: "hidden" }}
+      animate={{ visibility: "visible" }}
+      transition={{ duration: 0, delay: 3 }}
       ref={ref}
       className="px-7 flex items-center h-full MainColor justify-between text-white"
     >
@@ -64,7 +67,7 @@ const Header = ({ setOpenLogin, isOpenLogin, isLoggedIn, userData }) => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

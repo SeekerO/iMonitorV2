@@ -4,6 +4,7 @@ import { FaChartPie } from "react-icons/fa";
 import TableCompany from "./table/TableCompany";
 import ChartCompany from "./chart/ChartCompany";
 import { FaTableColumns } from "react-icons/fa6";
+import SearchBar from "../component/searchbar/SearchBar";
 
 const Company = ({ company_data }) => {
   const data = countStudentsByCompany(company_data);
@@ -136,21 +137,10 @@ const Company = ({ company_data }) => {
         <div className="w-full h-[88dvh] overflow-auto bg-slate-300  rounded-md  backdrop-blur-lg bg-opacity-40 shadow-2xl shadow-slate-800 text-white p-4">
           <div className="flex gap-2 h-fit w-full">
             <h1 className="text-[35px] font-semibold">Company</h1>
-            <div
-              className={`${
-                isTable ? "w-0" : "w-full"
-              } flex items-center gap-1 bg-white rounded-md text-black px-2 duration-300`}
-            >
-              <CiSearch className="text-[25px] text-slate-400 h-[20px]" />
-              <div className="w-[1px] h-[30px] bg-slate-300 ml-2" />
-              <input
-                type="search"
-                placeholder="Search by company name"
-                value={searchTerm}
-                onChange={handleSearchChange}
-                className="text-black  rounded-md w-full px-2 outline-white"
-              />
-            </div>
+            <SearchBar
+              searchTerm={searchTerm}
+              handleSearchChange={handleSearchChange}
+            />
             <div
               onClick={() => setTable(!isTable)}
               className="justify-center flex items-center bg-white px-4 rounded-md group cursor-pointer"

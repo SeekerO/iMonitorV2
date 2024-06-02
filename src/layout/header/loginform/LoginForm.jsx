@@ -30,6 +30,15 @@ const LoginForm = ({
       setLoggedIn(true);
       setUserData({ username: formData.username, password: formData.password });
       setOpenLogin(false);
+    } else if (
+      formData.username === "tester2" &&
+      formData.password === "tester2"
+    ) {
+      window.localStorage.setItem("CurrentUser", JSON.stringify(formData));
+      window.location.reload();
+      setLoggedIn(true);
+      setUserData({ username: formData.username, password: formData.password });
+      setOpenLogin(false);
     } else {
       alert("Login Failed");
     }

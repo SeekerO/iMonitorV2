@@ -21,7 +21,7 @@ const UploadLog = lazy(() =>
   import("./pages/announcement/uploadlog/UploadLog")
 );
 
-const Content = ({ isLoggedIn }) => {
+const Content = ({ isLoggedIn, socket }) => {
   const [data, setdata] = useState(null);
   const [filterBy, setfilterBy] = useState("BSIT");
 
@@ -38,7 +38,10 @@ const Content = ({ isLoggedIn }) => {
             <Route path="/" element={<Registration />} />
             <Route path="/monitoring" element={<Monitoring data={data} />} />
             <Route path="/masterlist" element={<MasterList data={data} />} />
-            <Route path="/message" element={<Message />} />
+            <Route
+              path="/message"
+              element={<Message data={data} socket={socket} />}
+            />
             <Route
               path="/company"
               element={<Company company_data={CompanyFetcher()} />}

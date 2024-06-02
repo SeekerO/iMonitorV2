@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Content = lazy(() => import("./layout/content/Content"));
 const Sidebar = lazy(() => import("./layout/sidebar/Sidebar"));
 
-function App() {
+function App({ socket }) {
   const [isOpenLogin, setOpenLogin] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState();
   const [userData, setUserData] = useState();
@@ -37,7 +37,10 @@ function App() {
 
   useEffect(() => {
     const currentUser = JSON.parse(window.localStorage.getItem("CurrentUser"));
-    if (currentUser?.username === "tester1") {
+    if (
+      currentUser?.username === "tester1" ||
+      currentUser?.username === "tester2"
+    ) {
       setLoggedIn(true);
       setUserData(currentUser);
     }
@@ -94,7 +97,7 @@ function App() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 3}}
+            transition={{ duration: 1, delay: 3 }}
             className="flex h-full"
           >
             <aside className=" h-full  ">
@@ -105,7 +108,7 @@ function App() {
               />
             </aside>
             <article className="h-full w-full ">
-              <Content isLoggedIn={isLoggedIn} />
+              <Content isLoggedIn={isLoggedIn} socket={socket} />
             </article>
           </motion.div>
         </Suspense>

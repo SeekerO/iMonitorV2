@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/socket.io": {
-        target: "http://localhost:3000" || "http://www.imonitor.site",
+        target: "http://www.imonitor.site",
         ws: true,
       },
     },

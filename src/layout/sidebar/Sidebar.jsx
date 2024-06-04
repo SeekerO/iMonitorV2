@@ -2,18 +2,23 @@ import React, { useState, useEffect } from "react";
 import { PiMonitorBold } from "react-icons/pi";
 import { FaRegBuilding, FaRegListAlt } from "react-icons/fa";
 import { BiMessageAltEdit } from "react-icons/bi";
-import { MdAppRegistration, MdOutlineAnnouncement, MdKeyboardArrowUp } from "react-icons/md";
+import {
+  MdAppRegistration,
+  MdOutlineAnnouncement,
+  MdKeyboardArrowUp,MdDashboard
+} from "react-icons/md";
+
 import { BsClipboardData, BsUpload } from "react-icons/bs";
 import { IoCreate } from "react-icons/io5";
 import { Link, useLocation } from "react-router-dom";
-
 
 const Sidebar = ({ openSideBar, sideBarRef, setopenSideBar }) => {
   const [isOpenSubmenu, setOpenSubmenu] = useState(false);
   const location = useLocation();
 
   const Buttons = [
-    { to: "/", title: "Registration", icon: <MdAppRegistration /> },
+    { to: "/", title: "Dashboard", icon: <MdDashboard /> },
+    { to: "/registration", title: "Registration", icon: <MdAppRegistration /> },
     { to: "/monitoring", title: "Monitoring", icon: <PiMonitorBold /> },
     { to: "/masterlist", title: "Master List", icon: <FaRegListAlt /> },
     { to: "/company", title: "Company", icon: <FaRegBuilding /> },
@@ -68,7 +73,13 @@ const Sidebar = ({ openSideBar, sideBarRef, setopenSideBar }) => {
         </span>{" "}
         <span className="text-[15px] font-semibold flex items-center gap-2">
           Announcement
-          <MdKeyboardArrowUp className={`${isOpenSubmenu ? "rotate-180 duration-300" : "rotate-0 duration-300"} text-[20px]`} />
+          <MdKeyboardArrowUp
+            className={`${
+              isOpenSubmenu
+                ? "rotate-180 duration-300"
+                : "rotate-0 duration-300"
+            } text-[20px]`}
+          />
         </span>
       </div>
 

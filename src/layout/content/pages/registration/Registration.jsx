@@ -40,7 +40,7 @@ const Registration = () => {
   };
 
   return (
-    <div className="px-5 w-full">
+    <div className="w-full">
       <motion.div
         initial={{ x: 500 }}
         animate={{ x: 0 }}

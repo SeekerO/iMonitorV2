@@ -35,7 +35,7 @@ const SideLayout = ({ openSideLayout, deviceType, setopenSideLayout }) => {
     >
       <div
         onClick={() => setopenFiles(!openFiles)}
-        className="flex items-center group/files justify-between px-2 py-1 bg-slate-700 text-white hover:py-2 hover:shadow-md duration-300"
+        className="flex items-center group/files cursor-pointer justify-between px-2 py-1 bg-slate-700 text-white hover:py-2 hover:shadow-md duration-300"
       >
         Files
         <IoIosArrowForward className="group-hover/files:rotate-90 duration-300" />
@@ -48,7 +48,7 @@ const SideLayout = ({ openSideLayout, deviceType, setopenSideLayout }) => {
       ></div>
       <div
         onClick={() => setopenImages(!openImages)}
-        className="flex items-center group/image justify-between px-2 py-1 bg-slate-700 text-white hover:py-2 hover:shadow-md duration-300"
+        className="flex items-center group/image cursor-pointer justify-between px-2 py-1 bg-slate-700 text-white hover:py-2 hover:shadow-md duration-300"
       >
         Image{" "}
         <IoIosArrowForward className="group-hover/image:rotate-90 duration-300" />

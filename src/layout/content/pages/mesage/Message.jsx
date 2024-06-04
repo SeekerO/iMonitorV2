@@ -45,7 +45,7 @@ const Message = ({ data, socket }) => {
   };
 
   return (
-    <div className="h-full w-full px-3 py-2 ">
+    <div className="h-full w-full py-2 ">
       <div className="bg-slate-400 p-2 bg-opacity-50 h-[85vh] w-full rounded-md flex shadow-md gap-2">
         <List
           data={data}

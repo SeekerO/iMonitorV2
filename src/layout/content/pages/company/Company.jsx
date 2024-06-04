@@ -4,7 +4,6 @@ import { FaChartPie } from "react-icons/fa";
 import TableCompany from "./table/TableCompany";
 import ChartCompany from "./chart/ChartCompany";
 import { FaTableColumns } from "react-icons/fa6";
-import SearchBar from "../component/searchbar/SearchBar";
 
 const Company = ({ company_data }) => {
   const data = countStudentsByCompany(company_data);
@@ -133,22 +132,36 @@ const Company = ({ company_data }) => {
 
   return (
     <>
-      <div className="px-5 w-full">
+      <div className="w-full">
         <div className="w-full h-[88dvh] overflow-auto bg-slate-300  rounded-md  backdrop-blur-lg bg-opacity-40 shadow-2xl shadow-slate-800 text-white p-4">
           <div className="flex gap-2 h-fit w-full">
             <h1 className="text-[35px] font-semibold">Company</h1>
-            <SearchBar
-              searchTerm={searchTerm}
-              handleSearchChange={handleSearchChange}
-            />
+
+            <div
+              className={`${
+                isTable
+                  ? "w-[0px] overflow-hidden duration-300"
+                  : "w-full duration-300 px-2"
+              } flex items-center gap-1 bg-white rounded-md text-black  `}
+            >
+              <CiSearch className="text-[25px] text-slate-400 h-[20px]" />
+              <div className="w-[1px] h-[30px] bg-slate-300 ml-2" />
+              <input
+                type="search"
+                placeholder="Search by name, course, or progress"
+                value={searchTerm}
+                onChange={handleSearchChange}
+                className="text-black  rounded-md w-full px-2 outline-white"
+              />
+            </div>
             <div
               onClick={() => setTable(!isTable)}
-              className="justify-center flex items-center bg-white px-4 rounded-md group cursor-pointer"
+              className="justify-center flex items-center  bg-white px-5 shrink-0 rounded-md group cursor-pointer"
             >
               {isTable ? (
-                <FaTableColumns className="text-[20px] text-red-800 group-hover:shadow-md group-hover:text-blue-500 group-hover:scale-110 group-active:scale-95 group-hover:duration-300" />
+                <FaTableColumns className="text-[20px]  text-red-800 group-hover:shadow-md group-hover:text-blue-500 group-hover:scale-110 group-active:scale-95 group-hover:duration-300" />
               ) : (
-                <FaChartPie className="text-[20px] text-red-800 group-hover:shadow-md group-hover:text-blue-500 rounded-full group-hover:scale-110 group-active:scale-95 group-hover:duration-300" />
+                <FaChartPie className="text-[20px] text-red-800 group-hover:shadow-md group-hover:text-blue-500 group-hover:scale-110 group-active:scale-95 group-hover:duration-300" />
               )}
             </div>
           </div>

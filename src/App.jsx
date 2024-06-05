@@ -15,6 +15,7 @@ function App({ socket }) {
   const [userData, setUserData] = useState();
   const text = "WELCOME TO iMONITOR";
   const [openSideBar, setopenSideBar] = useState(true);
+  const [isInfo, setisInfo] = useState(true);
 
   const detectDeviceType = () => {
     const width = window.innerWidth;
@@ -144,6 +145,37 @@ function App({ socket }) {
       >
         <Footer />
       </motion.footer>
+
+      {isInfo && !isLoggedIn && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0, delay: 3.5 }}
+          className="fixed z-50 inset-0 w-full h-full backdrop-blur-sm flex justify-center"
+        >
+          <motion.div
+            initial={{ height: "0px" }}
+            animate={{ height: "250px" }}
+            transition={{ duration: 0.5, delay: 3.5 }}
+            className="bg-slate-200 w-[300px] rounded-md mt-[10rem] flex-col flex p-3 gap-2 overflow-hidden"
+          >
+            <div className="font-bold">
+              Greetings! This is a demo Web Application called iMONITOR
+            </div>
+            <label className="font-semibold"> Tester Account:</label>
+            <label> Username: tester1</label>
+            <label> Password: tester1</label>
+            <div className="w-full flex items-center justify-center mt-3">
+              <button
+                onClick={() => setisInfo(!isInfo)}
+                className="bg-[#274472] hover:bg-opacity-80 hover:shadow-md text-white rounded-md py-2 px-10 w-fit"
+              >
+                OK
+              </button>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </main>
   );
 }

@@ -62,7 +62,8 @@ const SubConfig = ({ stud_meta_data }) => {
       </label>
       <label className="flex items-center">
         <LuDot />
-        {stud_meta_data.ojtprogress} | {stud_meta_data.ojtrequiredprogress}
+        Progress: {stud_meta_data.ojtprogress} |{" "}
+        {stud_meta_data.ojtrequiredprogress}
       </label>
     </div>
   );

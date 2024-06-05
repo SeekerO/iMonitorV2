@@ -3,7 +3,7 @@ import React from "react";
 import { IoMdPersonAdd, IoIosTime } from "react-icons/io";
 import { BsFillBuildingsFill } from "react-icons/bs";
 import { CompanyFetcher } from "../../component/fetcher/dataFetchers";
-
+import { FaRegListAlt } from "react-icons/fa";
 const Cells = ({ data }) => {
   const all_company_data = CompanyFetcher();
   //   // 1st Company Filter - Get unique companies
@@ -43,7 +43,7 @@ const Cells = ({ data }) => {
       </div>
       <div className="dashboard-cell flex flex-col gap-2 p-1 text-slate-800">
         <label className="flex gap-1 w-full items-center font-bold  ">
-          <BsFillBuildingsFill />
+          <FaRegListAlt />
           MASTERLIST
         </label>
         <label className="font-bold text-[30px]">

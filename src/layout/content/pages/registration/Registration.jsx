@@ -45,9 +45,9 @@ const Registration = () => {
         initial={{ x: 500 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.5, ease: "easeIn" }}
-        className=" p-2 rounded-lg overflow-auto  bg-slate-300 h-fit w-full overflow-y-auto  backdrop-blur-lg bg-opacity-40 shadow-2xl shadow-slate-800"
+        className=" p-2 rounded-lg overflow-auto bg-slate-300 md:h-fit h-[85vh] w-full overflow-y-auto  backdrop-blur-lg bg-opacity-40 shadow-2xl shadow-slate-800"
       >
-        <div className=" font-bold tracking-wide mt-5 w-full flex justify-between items-center text-white">
+        <div className=" font-bold tracking-wide w-full flex flex-wrap justify-between items-center text-white">
           <div className="gap-2 flex h-fit ">
             <span className="text-[30px]">REGISTRATION</span>
             <span className="flex font-thin gap-1 items-center">
@@ -58,7 +58,7 @@ const Registration = () => {
           <div className="font-thin">S.Y 2024-2025</div>
         </div>
         <div className="mt-2 w-full flex flex-col gap-y-3">
-          <div className="flex gap-2 items-center ">
+          <div className="md:flex gap-2 items-center grid ">
             <label className="reg-title">FULLNAME</label>
             <input
               onChange={handleChange}
@@ -74,7 +74,7 @@ const Registration = () => {
               type="text"
               name="m.i"
               placeholder="M.I"
-              className="py-1 px-2 w-[60px] rounded-md "
+              className="py-1 px-2 md:w-[60px] w-full rounded-md "
             />
             <input
               onChange={handleChange}
@@ -89,10 +89,10 @@ const Registration = () => {
               type="text"
               name="suffix"
               placeholder="Suffix"
-              className="py-1 px-2 w-[60px] rounded-md "
+              className="py-1 px-2 md:w-[60px] w-full rounded-md "
             />
           </div>
-          <div className="flex gap-2 items-center ">
+          <div className="md:flex grid gap-2 items-center">
             <label className="reg-title">PROGRAM</label>
             <select
               required
@@ -125,7 +125,7 @@ const Registration = () => {
               className="py-1 px-2 w-full rounded-md "
             />
           </div>
-          <div className="flex gap-2 items-center ">
+          <div className="md:flex grid gap-2 items-center">
             <label className=" reg-title">OJT START</label>
             <input
               onChange={handleChange}
@@ -143,7 +143,7 @@ const Registration = () => {
               className="py-1 px-2 w-full rounded-md "
             />
           </div>
-          <div className="flex gap-2 ">
+          <div className="flex gap-2 flex-wrap">
             <label className=" reg-title">REMARKS</label>
             <textarea
               onChange={handleChange}
@@ -158,7 +158,7 @@ const Registration = () => {
           COMPANY INFORMATION
         </h1>
         <div className="mt-2 w-full flex flex-col gap-y-3 text-black">
-          <div className="flex gap-2 items-center ">
+          <div className="md:flex grid gap-2 items-center ">
             <label className="reg-title">START TIME</label>
             <input
               onChange={handleChange}
@@ -166,7 +166,7 @@ const Registration = () => {
               type="time"
               placeholder="First Name"
               name="starttime"
-              className="py-1 px-2 w-[150px] rounded-md"
+              className="py-1 px-2 md:w-[150px] w-full rounded-md"
             />
             <label className="reg-title">END TIME</label>
             <input
@@ -175,10 +175,10 @@ const Registration = () => {
               type="time"
               placeholder="First Name"
               name="endtime"
-              className="py-1 px-2 w-[150px] rounded-md"
+              className="py-1 px-2 md:w-[150px] w-full rounded-md"
             />
           </div>
-          <div className="flex gap-2 items-center ">
+          <div className="md:flex grid gap-2 items-center">
             <label className="reg-title">COMPANY NAME</label>
             <input
               onChange={handleChange}
@@ -199,7 +199,7 @@ const Registration = () => {
             />
           </div>
 
-          <div className="flex gap-2 items-center ">
+          <div className="md:flex grid gap-2 items-center ">
             <label className="reg-title">SUPERVISOR NAME</label>
             <input
               onChange={handleChange}
@@ -219,7 +219,7 @@ const Registration = () => {
               className="py-1 px-2 w-full rounded-md"
             />
           </div>
-          <div className="flex gap-2 items-center ">
+          <div className="md:flex grid gap-2 items-center">
             <label className="reg-title">DESIGNATION</label>
             <input
               onChange={handleChange}

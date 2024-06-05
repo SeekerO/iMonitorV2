@@ -12,7 +12,7 @@ const Dashboard = ({ data }) => {
           <Cells data={data} />
           <Bargraph data={data} />
         </div>
-        <div className="shrink-0 md:w-[30rem] md:mt-0 mt-5 w-full h-full md:overflow-hidden  rounded-md bg-slate-100 bg-opacity-70 flex flex-col">
+        <div className="shrink-0 md:w-[30rem] md:mt-0 mt-5 w-full h-full overflow-auto rounded-md bg-slate-100 bg-opacity-70 flex flex-col">
           <Doughnut_chart data={data} />
         </div>
       </div>{" "}

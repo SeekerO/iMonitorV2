@@ -41,13 +41,11 @@ const Doughnut_chart = ({ data }) => {
   };
 
   // Sort the courses based on the highest completion percentage
-  const sortedCompanies = Object.keys(coursesData)
-    .sort((a, b) => {
-      const percentageA = parseFloat(completion_percentage(a).replace("%", ""));
-      const percentageB = parseFloat(completion_percentage(b).replace("%", ""));
-      return percentageB - percentageA;
-    })
-    .slice(0, 3);
+  const sortedCompanies = Object.keys(coursesData).sort((a, b) => {
+    const percentageA = parseFloat(completion_percentage(a).replace("%", ""));
+    const percentageB = parseFloat(completion_percentage(b).replace("%", ""));
+    return percentageB - percentageA;
+  });
 
   const generateChartData = (acro) => {
     const completed = coursesData[acro].filter(
@@ -89,20 +87,19 @@ const Doughnut_chart = ({ data }) => {
   return (
     <div className="">
       <div className="pt-3">
-        <div className="text-[21px] font-semibold items-center justify-center flex gap-2 text-white MainColor mx-3 mb-2 rounded-md shadow-md">
+        <div className="text-[21px] font-semibold items-center justify-center flex py-2 gap-2 text-white MainColor mx-3 mb-2 rounded-md shadow-md">
           <div className="text-blue-400 flex items-center gap-1">
-            <RiBuilding2Fill /> <em className="font-semibold">TOP 3</em>
+            <RiBuilding2Fill />
           </div>
-          <span className="text-[16px] items-center flex h-full justify-center">
-            {" "}
-            OJT STUDENT COMPLETION RATE PER COURSE
+          <span className="text-[14px] items-center flex h-full justify-center">
+            OJT STUDENT COMPLETION RATE PER COURSE (MASTERLIST)
           </span>
         </div>
       </div>
 
       <div className="h-full w-full">
         {sortedCompanies.map((acro, index) => (
-          <div key={acro} className="w-full px-3 mt-2">
+          <div key={acro} className="w-full px-3 mt-2.5">
             <div className="h-[190px] w-full bg-[#274472] bg-opacity-95 text-white rounded-md shadow-md p-1 flex">
               <Doughnut
                 data={generateChartData(acro)}

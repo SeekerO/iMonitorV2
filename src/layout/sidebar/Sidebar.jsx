@@ -55,7 +55,7 @@ const Sidebar = ({ openSideBar, sideBarRef, setopenSideBar }) => {
               location.pathname === button.to
                 ? "bg-[#274472] text-slate-600 shadow-lg "
                 : "hover:bg-slate-200 hover:bg-opacity-25"
-            } flex  text-white items-center gap-2 mt-1   p-2 rounded-l-md cursor-pointer`}
+            } flex  text-white items-center gap-2 mt-1  p-2 rounded-l-md cursor-pointer`}
           >
             <span className="text-[25px]">{button.icon}</span>
             <span className="text-[15px] font-semibold flex items-center gap-2">
@@ -66,7 +66,7 @@ const Sidebar = ({ openSideBar, sideBarRef, setopenSideBar }) => {
       ))}
       <div
         onClick={() => setOpenSubmenu(!isOpenSubmenu)}
-        className="flex text-white items-center gap-2 mt-1  hover:bg-slate-200 hover:bg-opacity-25 p-2 rounded-l-md cursor-pointer "
+        className="flex text-white items-center gap-2 mt-1 hidden hover:bg-slate-200 hover:bg-opacity-25 p-2 rounded-l-md cursor-pointer "
       >
         <span className="text-[25px]">
           <MdOutlineAnnouncement />

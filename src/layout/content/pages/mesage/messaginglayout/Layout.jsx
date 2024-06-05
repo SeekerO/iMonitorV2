@@ -73,7 +73,7 @@ const Layout = ({
       {(openLayout || width >= 786) && (
         <div className="MainColor  text-white h-full w-full md:rounded-r-md rounded-md">
           {messageTo !== "" ? (
-            <div className="flex flex-col h-full">
+            <div className="flex flex-col h-full w-full ">
               {/* HEADER DISPLAY */}
               <div className="w-full flex items-center px-3 py-3 MainColor justify-between rounded-tr-md">
                 <div className="flex items-center gap-1">

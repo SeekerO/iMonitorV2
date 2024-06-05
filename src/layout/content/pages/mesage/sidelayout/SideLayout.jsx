@@ -30,8 +30,8 @@ const SideLayout = ({ openSideLayout, deviceType, setopenSideLayout }) => {
     <div
       ref={sidelayout}
       className={`${
-        !openSideLayout ? "w-[0px]" : "w-[300px] "
-      } h-full duration-300 overflow-hidden MainColor rounded-md`}
+        !openSideLayout ? "w-[0px]" : "w-[300px] h-full MainColor "
+      }  duration-300 overflow-hidden rounded-md`}
     >
       <div
         onClick={() => setopenFiles(!openFiles)}

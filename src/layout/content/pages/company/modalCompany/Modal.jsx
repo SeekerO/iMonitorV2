@@ -50,10 +50,10 @@ const Modal = ({ openModal, setopenModal, meta_data }) => {
   if (!openModal) return;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 h-full rounded-sm w-full flex justify-center ">
+    <div className="fixed inset-0 bg-black bg-opacity-50 h-full rounded-sm w-full flex justify-center  overflow-hidden">
       <div
         ref={ref}
-        className="bg-blue-100 text-black w-[50rem] md:h-[30rem] h-[40rem] mt-10 rounded-md shadow-md p-2 gap-y-2 "
+        className="bg-blue-100 text-black w-[50rem] md:h-[30rem] h-[40rem] mt-10 rounded-md shadow-md p-2 gap-y-2  overflow-hidden"
       >
         <div className="font-semibold tracking-wider underline underline-offset-2 flex justify-between w-full items-center">
           <label className="flex gap-2 items-center h-fit">
@@ -67,7 +67,7 @@ const Modal = ({ openModal, setopenModal, meta_data }) => {
             className="text-[25px] active:text-red-500 cursor-pointer"
           />
         </div>
-        <div className="flex h-full flex-wrap overflow-auto">
+        <div className="md:flex grid h-full  overflow-auto">
           <div className="flex flex-col gap-y-5 mt-2 w-full">
             <label className="text-[25px] flex items-center gap-1">
               <BsFillBuildingsFill />

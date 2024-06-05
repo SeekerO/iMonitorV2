@@ -15,22 +15,19 @@ const Doughnut_chart = ({ data }) => {
 
   const data_master = filterOjtData(data);
 
-  // Create an object to store data by 'acro'
   const coursesData = {};
   data_master.forEach((item) => {
     if (!coursesData[item.acro]) {
-      coursesData[item.acro] = []; // Initialize array if 'acro' doesn't exist as a key
+      coursesData[item.acro] = [];
     }
-    coursesData[item.acro].push(item); // Push data into the corresponding 'acro' key
+    coursesData[item.acro].push(item);
   });
 
-  // Function to count items with ojtprogress equal to ojtrequiredprogress
   const countMatchingProgress = (data) => {
     return data.filter((item) => item.ojtprogress === item.ojtrequiredprogress)
       .length;
   };
 
-  // Function to calculate completion percentage
   const completion_percentage = (acro) => {
     const courseData = coursesData[acro];
     const matchingProgressCount = countMatchingProgress(courseData);
@@ -40,7 +37,6 @@ const Doughnut_chart = ({ data }) => {
     return `${percentage.toFixed(2)}% out of the ${totalStudents} students`;
   };
 
-  // Sort the courses based on the highest completion percentage
   const sortedCompanies = Object.keys(coursesData).sort((a, b) => {
     const percentageA = parseFloat(completion_percentage(a).replace("%", ""));
     const percentageB = parseFloat(completion_percentage(b).replace("%", ""));

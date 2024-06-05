@@ -15,34 +15,23 @@ Chart.register(BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend);
 import { Bar } from "react-chartjs-2";
 
 const Bargraph = ({ data }) => {
-  // Collect all unique course acronyms
   const courses = [...new Set(data.map((item) => item.acro))];
 
-  // Generate count for each course
   const acroCounts = data.reduce((acc, item) => {
     acc[item.acro] = (acc[item.acro] || 0) + 1;
     return acc;
   }, {});
 
-  // Function to fetch the count for a specific course acronym
   const getAcroCount = (acro) => acroCounts[acro] || 0;
 
-  // Generate a consistent color for each course
   const generateBlueShadeColor = () => {
-    const blueShades = [
-      "40", // Medium blue
-      "80", // Light blue
-      "BF", // Very light blue
-      "FF", // Pale blue
-    ];
+    const blueShades = ["40", "80", "BF", "FF"];
 
-    // Select a random shade of blue
     const blue = blueShades[Math.floor(Math.random() * blueShades.length)];
 
-    const red = "01"; // Zero intensity for red
-    const green = "04"; // Zero intensity for green
+    const red = "01";
+    const green = "04";
 
-    // Return the color in hex format, allowing only the blue component to vary
     return `#${red}${green}${blue}`;
   };
   const colors = courses.map(() => generateBlueShadeColor());
@@ -61,10 +50,8 @@ const Bargraph = ({ data }) => {
     }, {});
   };
 
-  // Get the counts once
   const statusCountsByAcro = countStatusByAcro(data);
 
-  // Format the result according to the desired structure
   const formattedData = Object.keys(statusCountsByAcro).map((acro) => ({
     acro: acro,
     label1: "ongoing",
@@ -110,17 +97,17 @@ const Bargraph = ({ data }) => {
     plugins: {
       legend: {
         labels: {
-          color: "rgba(255, 255, 255, 1)", // Legend text color
+          color: "rgba(255, 255, 255, 1)",
         },
       },
       title: {
         display: true,
         text: "Number of student enrolled in each course",
-        color: "rgba(255, 255, 255, 1)", // Title text color
+        color: "rgba(255, 255, 255, 1)",
       },
       tooltip: {
-        bodyColor: "rgba(255, 255, 255, 1)", // Tooltip text color
-        titleColor: "rgba(255, 255, 255, 1)", // Tooltip title color
+        bodyColor: "rgba(255, 255, 255, 1)",
+        titleColor: "rgba(255, 255, 255, 1)",
       },
     },
 
@@ -136,17 +123,17 @@ const Bargraph = ({ data }) => {
     plugins: {
       legend: {
         labels: {
-          color: "rgba(255, 255, 255, 1)", // Legend text color
+          color: "rgba(255, 255, 255, 1)",
         },
       },
       title: {
         display: true,
         text: "Number of Student Ongoing and Archvied",
-        color: "rgba(255, 255, 255, 1)", // Title text color
+        color: "rgba(255, 255, 255, 1)",
       },
       tooltip: {
-        bodyColor: "rgba(255, 255, 255, 1)", // Tooltip text color
-        titleColor: "rgba(255, 255, 255, 1)", // Tooltip title color
+        bodyColor: "rgba(255, 255, 255, 1)",
+        titleColor: "rgba(255, 255, 255, 1)",
       },
     },
 

@@ -6,13 +6,12 @@ import { CompanyFetcher } from "../../component/fetcher/dataFetchers";
 import { FaRegListAlt } from "react-icons/fa";
 const Cells = ({ data }) => {
   const all_company_data = CompanyFetcher();
-  //   // 1st Company Filter - Get unique companies
+
   const uniqueCompanies = [
     ...new Set(all_company_data.map((student) => student.companyname)),
   ];
   const numberOfUniqueCompanies = uniqueCompanies.length;
 
-  //   // 2nd Ongoing Filter - Count students with status false
   const ongoingStudentsCount = data.filter((student) => !student.status).length;
 
   const masterlist_data = filterOjtData(data);

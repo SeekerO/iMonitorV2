@@ -114,7 +114,7 @@ const Doughnut_chart = ({ data }) => {
               <div className="ml-3 flex flex-col justify-center">
                 <h3 className="text-xl font-bold ">{acro}</h3>
                 <p>
-                  The total completion rate in this course is{" "}
+                  The total OJT completion rate in this course is{" "}
                   {completion_percentage(acro)}
                 </p>
               </div>

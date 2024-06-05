@@ -8,8 +8,7 @@ const socket = io();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <React.StrictMode>
-      <App socket={socket} />
-    </React.StrictMode>
+    {/* <React.StrictMode> </React.StrictMode> */}
+    <App socket={socket} />
   </BrowserRouter>
 );

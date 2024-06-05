@@ -28,7 +28,7 @@ const SubConfig = ({ stud_meta_data }) => {
       className={`${
         !viewStudentInfo
           ? "h-[24px] duration-300 overflow-hidden "
-          : "h-[130px] duration-300 overflow-hidden "
+          : "h-[150px] duration-300 overflow-hidden "
       } px-2 flex flex-col overflow-hidden  bg-blue-950 text-white rounded-sm mt-1  duration-300`}
     >
       <div
@@ -59,6 +59,10 @@ const SubConfig = ({ stud_meta_data }) => {
       <label className="flex items-center">
         <LuDot />
         {stud_meta_data.status === false ? "Ongoing" : "Archived"}
+      </label>
+      <label className="flex items-center">
+        <LuDot />
+        {stud_meta_data.ojtprogress} | {stud_meta_data.ojtrequiredprogress}
       </label>
     </div>
   );

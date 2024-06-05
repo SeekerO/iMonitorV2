@@ -26,36 +26,36 @@ const Cells = ({ data }) => {
   }
 
   return (
-    <div className="py-1 flex gap-2 justify-between flex-wrap">
-      <div className="dashboard-cell flex flex-col gap-2 p-1 text-green-500">
+    <div className="py-1 flex gap-2 justify-evenly flex-wrap">
+      <div className="dashboard-cell flex flex-col gap-2 p-1 text-green-700">
         <label className="flex gap-1 w-full items-center font-bold  ">
           <IoMdPersonAdd />
           REGISTERED STUDENT
         </label>
-        <label className="font-bold text-[25px]">{data.length}</label>
+        <label className="font-bold text-[30px]">{data.length}</label>
       </div>
-      <div className="dashboard-cell flex flex-col gap-2 p-1 text-yellow-400">
+      <div className="dashboard-cell flex flex-col gap-2 p-1 text-yellow-600">
         <label className="flex gap-1 w-full items-center font-bold  ">
           <IoIosTime />
           ONGOING OJT
         </label>
-        <label className="font-bold text-[25px]">{ongoingStudentsCount}</label>
+        <label className="font-bold text-[30px]">{ongoingStudentsCount}</label>
       </div>
-      <div className="dashboard-cell flex flex-col gap-2 p-1 text-slate-500">
+      <div className="dashboard-cell flex flex-col gap-2 p-1 text-slate-800">
         <label className="flex gap-1 w-full items-center font-bold  ">
           <BsFillBuildingsFill />
           MASTERLIST
         </label>
-        <label className="font-bold text-[25px]">
+        <label className="font-bold text-[30px]">
           {masterlist_data.length}
         </label>
       </div>
-      <div className="dashboard-cell flex flex-col gap-2 p-1 text-blue-400">
+      <div className="dashboard-cell flex flex-col gap-2 p-1 text-blue-800">
         <label className="flex gap-1 w-full items-center font-bold ">
           <BsFillBuildingsFill />
           COMPANIES
         </label>
-        <label className="font-bold text-[25px]">
+        <label className="font-bold text-[30px]">
           {numberOfUniqueCompanies}
         </label>
       </div>

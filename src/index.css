@@ -76,5 +76,5 @@ textarea {
 }
 
 .dashboard-cell {
-  @apply md:w-[11.5rem] w-full h-[6rem] bg-slate-100  rounded-md shrink-0 text-[0.9rem];
+  @apply md:w-[11.5rem] w-full h-[6rem] bg-slate-100  bg-opacity-70 rounded-md shrink-0 text-[0.9rem];
 }

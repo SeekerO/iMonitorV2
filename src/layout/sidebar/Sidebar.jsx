@@ -5,7 +5,8 @@ import { BiMessageAltEdit } from "react-icons/bi";
 import {
   MdAppRegistration,
   MdOutlineAnnouncement,
-  MdKeyboardArrowUp,MdDashboard
+  MdKeyboardArrowUp,
+  MdDashboard,
 } from "react-icons/md";
 
 import { BsClipboardData, BsUpload } from "react-icons/bs";
@@ -47,9 +48,8 @@ const Sidebar = ({ openSideBar, sideBarRef, setopenSideBar }) => {
       } flex flex-col pt-2 relative overflow-hidden duration-300 SecondColor h-full`}
     >
       {Buttons.map((button, index) => (
-        <div onClick={() => CloseSideBar()}>
+        <div key={index} onClick={() => CloseSideBar()}>
           <Link
-            key={index}
             to={button.to}
             className={`       ${
               location.pathname === button.to

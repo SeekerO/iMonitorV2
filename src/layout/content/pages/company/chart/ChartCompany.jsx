@@ -47,7 +47,7 @@ const ChartCompany = ({ data, deviceType }) => {
       },
       title: {
         display: true,
-        text: "Custom Chart Title",
+        text: "TOP 3 COMPANIES",
         color: "rgba(255, 255, 255, 0.8)", // Title text color
       },
       tooltip: {
@@ -58,11 +58,10 @@ const ChartCompany = ({ data, deviceType }) => {
   };
   return (
     <div className={`${deviceType ? "flex" : "flex-wrap"} w-full`}>
-      <div className={` ${!deviceType? "h-fit" : "h-[75dvh]"}  flex`}>
+      <div className={` ${!deviceType ? "h-fit" : "h-[75dvh]"}  flex`}>
         <Pie options={options} data={PieData} />
-      </div>{" "}
+      </div>
       <div className="flex flex-col h-full w-full overflow-hidden">
-        {" "}
         <div className="w-full h-[25dvh] flex flex-col overflow-auto">
           <h1 className="text-[25px] font-semibold flex gap-2 items-center">
             <RiBuilding2Fill /> TOP 3 OJT COMPANIES STUDENT ENROLLED

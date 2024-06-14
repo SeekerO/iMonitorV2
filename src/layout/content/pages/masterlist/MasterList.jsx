@@ -68,6 +68,17 @@ const MasterList = ({ data }) => {
     });
   }
 
+  const LoadingData = [
+    { data: 1 },
+    { data: 2 },
+    { data: 3 },
+    { data: 4 },
+    { data: 5 },
+    { data: 6 },
+    { data: 7 },
+    { data: 8 },
+  ];
+
   return (
     <>
       <div className="w-full">
@@ -97,16 +108,14 @@ const MasterList = ({ data }) => {
             </a>
           </div>
           <div className="h-[62dvh] overflow-auto mt-1">
-            <Suspense fallback={"Loading..."}>
-              {currentData.map((meta_data, index) => (
-                <DataConfig
-                  key={meta_data.id}
-                  onClick={() => setopenModal(!openModal)}
-                  meta_data={meta_data}
-                  datafrom={"masterlist"}
-                />
-              ))}
-            </Suspense>
+            {currentData.map((meta_data, index) => (
+              <DataConfig
+                key={meta_data.id}
+                onClick={() => setopenModal(!openModal)}
+                meta_data={meta_data}
+                datafrom={"masterlist"}
+              />
+            ))}
           </div>
           <div className="flex justify-center mt-2">
             <ReactPaginate

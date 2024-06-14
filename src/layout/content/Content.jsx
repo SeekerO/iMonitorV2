@@ -34,7 +34,7 @@ const Content = ({ isLoggedIn, socket }) => {
   else
     return (
       <div className="w-full h-full  justify-center flex px-5">
-        <Suspense fallback={"Loading..."}>
+        <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<Dasboard data={data} />} />
             <Route path="/registration" element={<Registration />} />

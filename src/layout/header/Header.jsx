@@ -73,7 +73,7 @@ const Header = ({
             ) : (
               <a
                 onClick={() => handleSignOut()}
-                className="active:text-blue-600 cursor-pointer hover:underline hover:underline-offset-2"
+                className="hover:text-blue-600 cursor-pointer  hover:underline-offset-2 bg-slate-50 text-black py-1 px-2 rounded-sm"
               >
                 Sign Out
               </a>

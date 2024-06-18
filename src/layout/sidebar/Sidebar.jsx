@@ -66,7 +66,7 @@ const Sidebar = ({ openSideBar, sideBarRef, setopenSideBar }) => {
       ))}
       <div
         onClick={() => setOpenSubmenu(!isOpenSubmenu)}
-        className="flex text-white items-center gap-2 mt-1 hidden hover:bg-slate-200 hover:bg-opacity-25 p-2 rounded-l-md cursor-pointer "
+        className="flex text-white items-center gap-2 mt-1  hover:bg-slate-200 hover:bg-opacity-25 p-2 rounded-l-md cursor-pointer "
       >
         <span className="text-[25px]">
           <MdOutlineAnnouncement />

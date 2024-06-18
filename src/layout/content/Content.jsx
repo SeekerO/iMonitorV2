@@ -48,8 +48,11 @@ const Content = ({ isLoggedIn, socket }) => {
               path="/company"
               element={<Company company_data={CompanyFetcher()} />}
             />
-            <Route path="/activitylog" element={<CreateAnnouncement />} />
-            <Route path="/createannouncement" element={<ActivityLog />} />
+            <Route path="/activitylog" element={<ActivityLog />} />
+            <Route
+              path="/createannouncement"
+              element={<CreateAnnouncement />}
+            />
             <Route path="/uploadlog" element={<UploadLog />} />
           </Routes>
         </Suspense>

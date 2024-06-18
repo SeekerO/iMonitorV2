@@ -160,7 +160,7 @@ function App({ socket }) {
             className="bg-slate-200 w-[300px] rounded-md mt-[10rem] flex-col flex p-3 gap-2 overflow-hidden"
           >
             <div className="font-bold">
-              Greetings! This is a demo Web Application called iMONITOR
+              Greetings! This is a demo Web Application called iMONITOR 
             </div>
             <label className="font-semibold"> Tester Account:</label>
             <label> Username: tester1</label>

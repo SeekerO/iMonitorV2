@@ -10,7 +10,7 @@ const Header = ({
   setopenSideBar,
   openSideBar,
 }) => {
-  const [isClickedProfile, setClickedProfile] = useState(false);
+  const [isClickedProfile, setClickedProfile] = useState(true);
   const ref = useRef(null);
 
   const handleSignOut = () => {
